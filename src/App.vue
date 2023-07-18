@@ -7,6 +7,7 @@ const name = ref('')
 const input_content = ref('')
 const input_category = ref(null)
 
+//To change the order to desc swap a.createdAt and b.createdAt around
 const todos_asc = computed(() => todos.value.sort((a,b) =>{
 	return a.createdAt - b.createdAt
 }))
