@@ -7,11 +7,34 @@
 	--dark: #313154;
 	--danger: #ff5b57;
 
+	--lightModal: hsl(220, 50%, 90%);
+	--primaryModal: hsl(255, 30%, 55%);
+	--focus: hsl(210, 90%, 50%);
+	--border-color: hsla(0, 0%, 100%, .2);
+	--global-background: hsl(220, 25%, 10%);
+	--background: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));
+	--shadow-1: hsla(236, 50%, 50%, .3);
+	--shadow-2: hsla(236, 50%, 50%, .4);
+
 	--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
 	--business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
 	--personal-glow: 0px 0px 4px rgba(225, 123, 235, 0.75);
 }
+
+.slide-fade-enter-active {
+	transition: all 0.3s ease-out;
+  }
+  
+  .slide-fade-leave-active {
+	transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  
+  .slide-fade-enter-from,
+  .slide-fade-leave-to {
+	transform: translateX(20px);
+	opacity: 0;
+  }
 
 * {
 	margin: 0;

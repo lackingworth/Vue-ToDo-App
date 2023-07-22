@@ -1,5 +1,9 @@
 <script setup>
 import { ref, onMounted, computed, watch } from 'vue'
+import Modal from './components/Modal.vue'
+
+const isAdded = ref(false);
+const isDeleted = ref(false);
 
 const todos = ref([])
 const name = ref('')
@@ -26,6 +30,9 @@ const addTodo = () => {
 		return
 	}
 
+	isAdded.value = true;
+	setTimeout(() => {isAdded.value = false}, 3000)
+
 	todos.value.push({
 		content: input_content.value,
 		category: input_category.value,
@@ -36,6 +43,9 @@ const addTodo = () => {
 }
 
 const removeTodo = (todo) => {
+	isDeleted.value = true;
+	setTimeout(() => {isDeleted.value = false}, 3000)
+
 	todos.value = todos.value.filter((t) => t !== todo)
 }
 
@@ -47,7 +57,12 @@ onMounted(() => {
 
 <template>
 	<main class="app">
-		
+		<Transition name="slide-fade">
+			<Modal text="Successfully Added" isAdded="true" v-if="isAdded" />
+		</Transition>
+		<Transition name="slide-fade">
+			<Modal text="Successfully Deleted" isDeleted="true" v-if="isDeleted" />
+		</Transition>
 		<section class="greeting">
 			<h2 class="title">
 				What's up, <input type="text" id="name" placeholder="Name here" v-model="name">
